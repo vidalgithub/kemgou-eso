@@ -39,7 +39,7 @@ EXAMPLE OF ESO SETTING UP WITH YAML FILES
 Here's an example set of YAML files for managing credentials (username and password) stored in AWS Secrets Manager using the Kubernetes External Secrets Operator (ESO). Please note that you need to install the ESO in your cluster before using these resources.
 
 Ensure Helm is Installed:
-ESO is often deployed using Helm charts. Ensure that Helm is installed in your Kubernetes cluster. You can install Helm by following the instructions on the official Helm website.
+ESO is often deployed using Helm charts. Ensure that Helm is installed in your Kubernetes cluster. You can install Helm by following the instructions on https://artifacthub.io/packages/helm/external-secrets-operator/external-secrets.
 
 Add the External Secrets Helm Repository:
 Add the External Secrets Helm repository to Helm:
