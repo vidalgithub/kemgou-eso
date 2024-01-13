@@ -19,7 +19,8 @@ How They Work Together:
 5. Injection into Pods: Once ESO has the secret, it injects it into the specified Kubernetes pods that reference the ExternalSecret. This injection can happen as environment variables, files, or other forms, based on your configuration.
 
    
-Benefits:
+Benefits:      
+
 • Centralized Management: Secrets can be managed externally, allowing for centralized control and security policies.
 • Decoupling: ExternalSecrets decouple the declaration of secrets from their actual storage, promoting a cleaner and more secure approach.
 • Dynamic Updates: ESO can dynamically update secrets in pods when they change externally, without requiring manual intervention.
