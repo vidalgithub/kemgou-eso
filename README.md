@@ -43,12 +43,12 @@ ESO is often deployed using Helm charts. Ensure that Helm is installed in your K
 
 Add the External Secrets Helm Repository:
 Add the External Secrets Helm repository to Helm:
-helm repo add external-secrets https://external-secrets.github.io/kubernetes-external-secrets/
+helm repo add external-secrets https://charts.external-secrets.io
 helm repo update
 
 Install the External Secrets Helm Chart:
 Install the External Secrets Operator using Helm:
-helm install external-secrets external-secrets/kubernetes-external-secrets
+helm install external-secrets external-secrets/external-secrets
 Replace external-secrets with the desired release name.
 
 Verify the Installation:
