@@ -63,24 +63,16 @@ Ensure that the pods are running, and the Custom Resource Definitions (CRDs) are
 ![image](https://github.com/vidalgithub/kemgou-eso/assets/88409846/da77429a-ad32-4190-a919-0a8fa31d854b)
 
 apiVersion: kubernetes-client.io/v1
-
 kind: SecretStore
-
 metadata:
-
   name: aws-secretstore
-  
 spec:
-
   provider: aws
-  
   parameters:
-  
     region: us-east-1
-    
     accessKeyID: YOUR_AWS_ACCESS_KEY
+    secretAccessKey: YOUR_AWS_SECRET_KEY![image](https://github.com/vidalgithub/kemgou-eso/assets/88409846/379b4b1c-7b1e-4b4b-9042-3fb07f9f1ad4)
 
-    secretAccessKey: YOUR_AWS_SECRET_KEY
 
     
 Replace YOUR_AWS_ACCESS_KEY and YOUR_AWS_SECRET_KEY with your actual AWS credentials.
