@@ -21,9 +21,13 @@ How They Work Together:
    
 Benefits:      
 
-• Centralized Management: Secrets can be managed externally, allowing for centralized control and security policies.
-• Decoupling: ExternalSecrets decouple the declaration of secrets from their actual storage, promoting a cleaner and more secure approach.
-• Dynamic Updates: ESO can dynamically update secrets in pods when they change externally, without requiring manual intervention.
+• Centralized Management: Secrets can be managed externally, allowing for centralized control and security policies.   
+
+• Decoupling: ExternalSecrets decouple the declaration of secrets from their actual storage, promoting a cleaner and more secure approach.   
+
+• Dynamic Updates: ESO can dynamically update secrets in pods when they change externally, without requiring manual intervention.   
+
+
 In summary, ESO acts as a liaison between your Kubernetes cluster and external secret managers. ExternalSecrets represent references to actual secrets, while SecretStores provide the necessary connection details. ESO fetches the secrets securely and injects them into your pods, simplifying secret management in Kubernetes.
 
 
