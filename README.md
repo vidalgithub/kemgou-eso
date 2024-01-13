@@ -1,4 +1,5 @@
-WHAT IS ESO?
+WHAT IS ESO?   
+
 The Kubernetes External Secrets Operator (ESO) is like a secret agent responsible for securely fetching and injecting secrets into Kubernetes pods. To understand how it works, let's delve into the concepts of ExternalSecrets and SecretStores.
 
 ExternalSecret:
@@ -25,7 +26,8 @@ In summary, ESO acts as a liaison between your Kubernetes cluster and external s
 
 
 
-EXAMPLE SETUP OF ESO IN THIS REPO
+EXAMPLE SETUP OF ESO IN THIS REPO:   
+
 In this repository, there are the main three files necessary to create a secret in a kubernetes cluster from an external secret management system (AWS SECRET MANAGER), as well as a shell script containing the kubernetes commands to retrieve the secret values from the kubernetes cluster.
 
 1- ADD HELM CHART REPO AND INSTALL THE ESO CHART IN YOUR NAMESPACE IN THE CLUSTER 
