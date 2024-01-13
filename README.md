@@ -17,11 +17,14 @@ How They Work Together:
 3. ESO Action: The ESO monitors the ExternalSecrets and SecretStores. When it sees a new ExternalSecret associated with a SecretStore, it knows where to look for the real secret.
 4. External Secret Fetching: ESO uses the information in the SecretStore to securely communicate with the external secret manager platform. It fetches the actual secret data.
 5. Injection into Pods: Once ESO has the secret, it injects it into the specified Kubernetes pods that reference the ExternalSecret. This injection can happen as environment variables, files, or other forms, based on your configuration.
+
+   
 Benefits:
 • Centralized Management: Secrets can be managed externally, allowing for centralized control and security policies.
 • Decoupling: ExternalSecrets decouple the declaration of secrets from their actual storage, promoting a cleaner and more secure approach.
 • Dynamic Updates: ESO can dynamically update secrets in pods when they change externally, without requiring manual intervention.
 In summary, ESO acts as a liaison between your Kubernetes cluster and external secret managers. ExternalSecrets represent references to actual secrets, while SecretStores provide the necessary connection details. ESO fetches the secrets securely and injects them into your pods, simplifying secret management in Kubernetes.
+
 
 
 
