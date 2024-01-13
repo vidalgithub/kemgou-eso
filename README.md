@@ -61,15 +61,26 @@ Ensure that the pods are running, and the Custom Resource Definitions (CRDs) are
 1. Create SecretStore YAML file (aws-secretstore.yaml):
 
 apiVersion: kubernetes-client.io/v1
+
 kind: SecretStore
+
 metadata:
+
   name: aws-secretstore
+  
 spec:
+
   provider: aws
+  
   parameters:
+  
     region: us-east-1
+    
     accessKeyID: YOUR_AWS_ACCESS_KEY
+
     secretAccessKey: YOUR_AWS_SECRET_KEY
+
+    
 Replace YOUR_AWS_ACCESS_KEY and YOUR_AWS_SECRET_KEY with your actual AWS credentials.
 
 
