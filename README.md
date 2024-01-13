@@ -30,6 +30,110 @@ Benefits:
 
 In summary, ESO acts as a liaison between your Kubernetes cluster and external secret managers. ExternalSecrets represent references to actual secrets, while SecretStores provide the necessary connection details. ESO fetches the secrets securely and injects them into your pods, simplifying secret management in Kubernetes.
 
+_____________________________________________
+
+
+
+EXAMPLE OF ESO SETTING UP WITH YAML FILES
+ 
+Here's an example set of YAML files for managing credentials (username and password) stored in AWS Secrets Manager using the Kubernetes External Secrets Operator (ESO). Please note that you need to install the ESO in your cluster before using these resources.
+
+Ensure Helm is Installed:
+ESO is often deployed using Helm charts. Ensure that Helm is installed in your Kubernetes cluster. You can install Helm by following the instructions on the official Helm website.
+
+Add the External Secrets Helm Repository:
+Add the External Secrets Helm repository to Helm:
+helm repo add external-secrets https://external-secrets.github.io/kubernetes-external-secrets/
+helm repo update
+
+Install the External Secrets Helm Chart:
+Install the External Secrets Operator using Helm:
+helm install external-secrets external-secrets/kubernetes-external-secrets
+Replace external-secrets with the desired release name.
+
+Verify the Installation:
+After installation, you can verify the status of the External Secrets Operator and its components using the following commands:
+kubectl get pods -n external-secrets
+kubectl get crd -o wide
+Ensure that the pods are running, and the Custom Resource Definitions (CRDs) are present.
+
+
+1. Create SecretStore YAML file (aws-secretstore.yaml):
+
+apiVersion: kubernetes-client.io/v1
+kind: SecretStore
+metadata:
+  name: aws-secretstore
+spec:
+  provider: aws
+  parameters:
+    region: us-east-1
+    accessKeyID: YOUR_AWS_ACCESS_KEY
+    secretAccessKey: YOUR_AWS_SECRET_KEY
+Replace YOUR_AWS_ACCESS_KEY and YOUR_AWS_SECRET_KEY with your actual AWS credentials.
+
+
+2. Create ExternalSecret YAML file (aws-externalsecret.yaml):
+
+apiVersion: kubernetes-client.io/v1
+kind: ExternalSecret
+metadata:
+  name: aws-credentials
+spec:
+  provider: aws
+  secretDescriptor:
+    - key: username
+      name: my-secret-username
+      version: AWSPREVIOUS
+    - key: password
+      name: my-secret-password
+      version: AWSPREVIOUS
+  target: my-pod
+  refreshInterval: 1h
+This ExternalSecret references the AWS SecretStore, specifies the keys (username and password), and sets the target as my-pod.
+
+
+3. Deployment YAML file (my-pod-deployment.yaml):
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-pod
+  template:
+    metadata:
+      labels:
+        app: my-pod
+    spec:
+      containers:
+      - name: my-container
+        image: my-image:latest
+        env:
+        - name: MY_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: aws-credentials
+              key: username
+        - name: MY_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: aws-credentials
+              key: password
+
+
+This Deployment specifies a pod (my-pod) that uses the credentials from the ExternalSecret (aws-credentials) as environment variables (MY_USERNAME and MY_PASSWORD).
+
+
+Note:
+
+Ensure that you have the AWS credentials (accessKeyID and secretAccessKey) provided in the SecretStore.
+Replace placeholders like my-image:latest and adjust other details based on your actual deployment requirements.
+Remember to apply these YAML files to your Kubernetes cluster using the kubectl apply -f filename.yaml command. Ensure that the ESO is installed in your cluster and properly configured to work with AWS Secrets Manager.
+
 
 
 
