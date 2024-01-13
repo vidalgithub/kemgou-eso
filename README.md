@@ -42,19 +42,30 @@ Ensure Helm is Installed:
 ESO is often deployed using Helm charts. Ensure that Helm is installed in your Kubernetes cluster. You can install Helm by following the instructions on https://artifacthub.io/packages/helm/external-secrets-operator/external-secrets.
 
 Add the External Secrets Helm Repository:
+
 Add the External Secrets Helm repository to Helm:
+
 helm repo add external-secrets https://charts.external-secrets.io
+
 helm repo update
 
+
 Install the External Secrets Helm Chart:
+
 Install the External Secrets Operator using Helm:
+
 helm install external-secrets external-secrets/external-secrets
+
 Replace external-secrets with the desired release name.
 
 Verify the Installation:
+
 After installation, you can verify the status of the External Secrets Operator and its components using the following commands:
+
 kubectl get pods -n external-secrets
+
 kubectl get crd -o wide
+
 Ensure that the pods are running, and the Custom Resource Definitions (CRDs) are present.
 
 
