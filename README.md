@@ -60,6 +60,8 @@ Ensure that the pods are running, and the Custom Resource Definitions (CRDs) are
 
 1. Create SecretStore YAML file (aws-secretstore.yaml):
 
+![image](https://github.com/vidalgithub/kemgou-eso/assets/88409846/da77429a-ad32-4190-a919-0a8fa31d854b)
+
 apiVersion: kubernetes-client.io/v1
 
 kind: SecretStore
