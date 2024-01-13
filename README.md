@@ -71,14 +71,14 @@ spec:
   parameters:
     region: us-east-1
     accessKeyID: YOUR_AWS_ACCESS_KEY
-    secretAccessKey: YOUR_AWS_SECRET_KEY![image](https://github.com/vidalgithub/kemgou-eso/assets/88409846/379b4b1c-7b1e-4b4b-9042-3fb07f9f1ad4)
+    secretAccessKey: YOUR_AWS_SECRET_KEY!
 
-
-    
 Replace YOUR_AWS_ACCESS_KEY and YOUR_AWS_SECRET_KEY with your actual AWS credentials.
 
 
 2. Create ExternalSecret YAML file (aws-externalsecret.yaml):
+
+![image](https://github.com/vidalgithub/kemgou-eso/assets/88409846/ea3e2db6-eb42-4ae2-8be2-1fbef0d1cd27)
 
 apiVersion: kubernetes-client.io/v1
 kind: ExternalSecret
@@ -99,6 +99,8 @@ This ExternalSecret references the AWS SecretStore, specifies the keys (username
 
 
 3. Deployment YAML file (my-pod-deployment.yaml):
+
+![image](https://github.com/vidalgithub/kemgou-eso/assets/88409846/9158449f-5f92-46b2-a96b-512819f15a74)
 
 apiVersion: apps/v1
 kind: Deployment
